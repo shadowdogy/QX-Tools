@@ -2,7 +2,7 @@ const scriptName = "PiPiMiao";
 const magicJS = new MagicJS(scriptName, "INFO");
 
 const SPLASH_AD_URL = /.*\/splash_store\.json/;
-const STORE_FREE_URL = /.*\/app_ios_store_free\.json/;
+const STORE_FREE_URL = /.*\/app_ios_store(_free)?\.json/;
 
 
 ;(async () => {
