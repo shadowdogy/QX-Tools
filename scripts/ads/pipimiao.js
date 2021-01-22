@@ -7,27 +7,32 @@ const STORE_FREE_URL = /.*\/app_ios_store(_free)?\.json/;
 
 ;(async () => {
     let body = null;
-    if (magicJS.isResponse) {
-        body = JSON.parse(magicJS.request.body);
-        if (SPLASH_AD_URL.test(magicJS.request.url)) {
-            body.data = "";
-            body.domains = [];
-            body.url = "";
+    try {
+        if (magicJS.isResponse) {
+            body = JSON.parse(magicJS.request.body);
+            if (SPLASH_AD_URL.test(magicJS.request.url)) {
+                body.data = "";
+                body.domains = [];
+                body.url = "";
+            } else if (STORE_FREE_URL.test(magicJS.request.url)) {
+                body.noticeBakUrl = "";
+                // body.shortUrlJs = "dmFyIHRpbWVvdXQ9c2V0VGltZW91dChmdW5jdGlvbigpe2NhbGxiYWNrTXNnKCIiKTt9LDEwMDAwKTs=";
+                body.extraList = [];
+                body.showTips = false;
+                body.noticeUrl = "";
+                body.shareUrl = "";
+                body.noticeContent = "Welcome Back!";
+                body.wxName = ""
+            }
             body = JSON.stringify(body);
-        } else if (STORE_FREE_URL.test(magicJS.request.url)) {
-            body.noticeBakUrl = "";
-            // body.shortUrlJs = "dmFyIHRpbWVvdXQ9c2V0VGltZW91dChmdW5jdGlvbigpe2NhbGxiYWNrTXNnKCIiKTt9LDEwMDAwKTs=";
-            body.extraList = [];
-            body.showTips = false;
-            body.noticeUrl = "";
-            body.shareUrl = "";
-            body.noticeContent = "Welcome Back!";
-            body.wxName = ""
         }
-        body = JSON.stringify(body);
+    } catch (e) {
+        magicJS.logError(`❌发生错误: ${e}`)
     }
     if (body) {
         magicJS.done({body});
+    } else {
+        magicJS.done();
     }
 })();
 
