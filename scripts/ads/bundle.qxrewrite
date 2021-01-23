@@ -1,6 +1,6 @@
 ^https?:\/\/gentle\.coding\.net\/p\/ppcat\/d\/ppcat\/git\/raw\/master\/app_ios_store_free\.json url 302 https://gentle.coding.net/p/ppcat/d/ppcat/git/raw/master/app_ios_store.json
 ^https?:\/\/gitee\.com\/gentle\/Datas\/raw\/master\/ppcat\/datas\/app_ios_store_free\.json url 302 https://gitee.com/gentle/Datas/raw/master/ppcat/datas/app_ios_store.json
-^https?:\/\/gentle\.coding\.net\/p\/ppcat\/.* url script-response-body https://cdn.jsdelivr.net/gh/shadowdogy/QX-Tools@main/scripts/ads/pipimiao.js
-^https?:\/\/gitee\.com\/gentle\/Datas\/raw\/master\/ppcat\/datas\/.* url script-response-body https://cdn.jsdelivr.net/gh/shadowdogy/QX-Tools@main/scripts/ads/pipimiao.js
+^https?:\/\/gentle\.coding\.net\/p\/ppcat\/.* url script-response-body https://raw.githubusercontent.com/shadowdogy/QX-Tools/main/scripts/ads/pipimiao.js
+^https?:\/\/gitee\.com\/gentle\/Datas\/raw\/master\/ppcat\/datas\/.* url script-response-body https://raw.githubusercontent.com/shadowdogy/QX-Tools/main/scripts/ads/pipimiao.js
 
 hostname = gentle.coding.net, gitee.com
