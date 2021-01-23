@@ -25,6 +25,7 @@ const STORE_FREE_URL = /.*\/app_ios_store(_free)?\.json/;
                 body.wxName = ""
             }
             body = JSON.stringify(body);
+            magicJS.logDebug(`处理之后的结果: ${body}`)
         }
     } catch (e) {
         magicJS.logError(`❌发生错误: ${e}`)
