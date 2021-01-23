@@ -9,7 +9,7 @@ const STORE_FREE_URL = /.*\/app_ios_store(_free)?\.json/;
     let body = null;
     try {
         if (magicJS.isResponse) {
-            body = JSON.parse(magicJS.request.body);
+            body = JSON.parse(magicJS.response.body);
             if (SPLASH_AD_URL.test(magicJS.request.url)) {
                 body.data = "";
                 body.domains = [];
