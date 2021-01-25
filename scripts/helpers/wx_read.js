@@ -1,34 +1,18 @@
-const scriptName = "PiPiMiao";
-const magicJS = new MagicJS(scriptName, "INFO");
+// hostname = i.weread.qq.com
+// ^https?:\/\/i\.weread\.qq\.com\/pay\/memberCardSummary.* url script-response-body wx_read.js
 
-const SPLASH_AD_URL = /.*\/splash_store\.json/;
-const STORE_FREE_URL = /.*\/app_ios_store(_free)?\.json/;
-
+const scriptName = "WXRead"
+const magicJS = new MagicJS(scriptName, "INFO")
 
 ;(async () => {
     let body = null;
-    try {
-        if (magicJS.isResponse) {
-            body = JSON.parse(magicJS.response.body);
-            if (SPLASH_AD_URL.test(magicJS.request.url)) {
-                body.data = "";
-                body.domains = [];
-                body.url = "";
-            } else if (STORE_FREE_URL.test(magicJS.request.url)) {
-                body.noticeBakUrl = "";
-                // body.shortUrlJs = "dmFyIHRpbWVvdXQ9c2V0VGltZW91dChmdW5jdGlvbigpe2NhbGxiYWNrTXNnKCIiKTt9LDEwMDAwKTs=";
-                body.extraList = [];
-                body.showTips = false;
-                body.noticeUrl = "";
-                body.shareUrl = "";
-                body.noticeContent = "Welcome Back!";
-                body.wxName = ""
-            }
-            body = JSON.stringify(body);
-            magicJS.logDebug(`处理之后的结果: ${body}`)
+    if (magicJS.isResponse) {
+        if (/.*\/pay\/memberCardSummary.*/.test(magicJS.request.url)) {
+            let obj = JSON.parse(magicJS.response.body);
+            obj.expiredTime = 1747624048;
+            obj.remainTime = 189302400;
+            body = JSON.stringify(obj)
         }
-    } catch (e) {
-        magicJS.logError(`❌发生错误: ${e}`)
     }
     if (body) {
         magicJS.done({body});
