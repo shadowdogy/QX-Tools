@@ -1,0 +1,4 @@
+# WERead
+^https?:\/\/i\.weread\.qq\.com\/pay\/memberCardSummary.* url script-response-body https://raw.githubusercontent.com/shadowdogy/QX-Tools/main/scripts/helpers/wx_read.js
+
+hostname = i.weread.qq.com

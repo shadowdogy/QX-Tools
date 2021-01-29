@@ -4,7 +4,7 @@
 ^https?:\/\/gentle\.coding\.net\/p\/ppcat\/.* url script-response-body https://raw.githubusercontent.com/shadowdogy/QX-Tools/main/scripts/ads/pipimiao.js
 ^https?:\/\/gitee\.com\/gentle\/Datas\/raw\/master\/ppcat\/datas\/.* url script-response-body https://raw.githubusercontent.com/shadowdogy/QX-Tools/main/scripts/ads/pipimiao.js
 
-# WERead
-^https?:\/\/i\.weread\.qq\.com\/pay\/memberCardSummary.* url script-response-body https://raw.githubusercontent.com/shadowdogy/QX-Tools/main/scripts/helpers/wx_read.js
+# 豆瓣
+^https?:\/\/frodo\.douban\.com\/api\/v2\/elendil\/recommend_feed.* url script-response-body https://raw.githubusercontent.com/shadowdogy/QX-Tools/main/scripts/ads/douban.js
 
-hostname = gentle.coding.net, gitee.com, i.weread.qq.com
+hostname = gentle.coding.net, gitee.com, frodo.douban.com
